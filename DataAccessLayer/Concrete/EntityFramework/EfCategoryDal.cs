@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Concrete.Repositories
+namespace DataAccessLayer.Concrete.EntityFramework
 {
     public class EfCategoryDal : EfEntityRepositoryBase<Category,Context>, ICategoryDal
     {

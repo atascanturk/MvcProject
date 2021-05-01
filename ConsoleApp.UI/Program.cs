@@ -1,5 +1,5 @@
 ﻿using BusinessLayer.Concrete;
-using DataAccessLayer.Concrete.Repositories;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +12,16 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+            //CategoryManager categoryManager = new CategoryManager();
 
-             var categories= categoryManager.GetAll();
-            foreach (var category in categories)
-            {
-                Console.WriteLine(category.Name);
-                Console.WriteLine(category.Description);
-            }
+            // var categories= categoryManager.GetAll();
+            //foreach (var category in categories)
+            //{
+            //    Console.WriteLine(category.Name);
+            //    Console.WriteLine(category.Description);
+            //}
 
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }

@@ -7,7 +7,7 @@ namespace DataAccessLayer.Concrete
 {
    public class Context :DbContext
     {
-        public Context() 
+        public Context()
         {
             Database.SetInitializer<Context>(null);
         }

@@ -2,32 +2,37 @@
 @{
     Layout = null;
 }
-S
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+    <h3>Kategori Tablosu</h3>
     <div> 
-        <table>
+        <table class="table table-hover">
             <tr>
                 <th>Kategory ID</th>
                 <th>Kategori Adı</th>
                 <th>Açıklama</th>
                 <th>Durum</th>
+                <th>İşlem</th>
 
             </tr>
 
             <tr>
+                <td>
+                    
+                </td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td><button class="btn btn-success">Güncelle</button></td>
             </tr>
         </table>
+        <button class="btn btn-info">Yeni Kategori</button>
+        <button class="btn btn-warning">Kategori Listesi</button>
+        <button class="btn btn-danger">Kategori Açıklaması</button>
     </div>
-</body>
-</html>
+
+

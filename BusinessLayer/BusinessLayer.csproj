@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\MvcProject.UI\Bin\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,7 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICategoryService.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
+    <Compile Include="DependencyResolvers\Ninject\AutoMapperModule.cs" />
+    <Compile Include="DependencyResolvers\Ninject\BusinessModule.cs" />
+    <Compile Include="DependencyResolvers\Ninject\InstanceFactory.cs" />
+    <Compile Include="DependencyResolvers\Ninject\ServiceModule.cs" />
+    <Compile Include="DependencyResolvers\Ninject\ValidationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,5 +70,9 @@
       <Name>EntityLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CanturkFramework.Core.Utilities.Mvc.Infrastructure;
+using CanturkFramework.Northwind.Business.DependencyResolvers.Ninject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,6 +17,7 @@ namespace MvcProject.UI
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(new ServiceModule()));
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }

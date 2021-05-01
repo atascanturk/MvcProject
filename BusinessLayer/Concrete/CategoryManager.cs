@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Abstract;
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class CategoryManager
+    public class CategoryManager :ICategoryService
     {
         ICategoryDal _categoryDal;
 
@@ -17,10 +18,9 @@ namespace BusinessLayer.Concrete
             _categoryDal = categoryDal;
         }
 
-
         public List<Category> GetAll()
         {
-          return  _categoryDal.GetAll();
+            return _categoryDal.GetAll();
         }
     }
 }
