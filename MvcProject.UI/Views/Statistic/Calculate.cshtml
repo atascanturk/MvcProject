@@ -1,0 +1,66 @@
+﻿@model List<Author>
+@using EntityLayer.Concrete
+
+@{
+    ViewBag.Title = "Calculate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="text-center mb-3 c">İstatistikler</div>    
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-header text-center mt-2"><h3>Toplam Kategori Sayısı</h3><br /></div>
+                <div class="card-body ">
+                    <h5 class="card-title"></h5>                    
+                    <div class="c text-center">@ViewBag.CategoryCount</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-secondary mb-3">
+                <div class="card-header text-center"><h3>Yazılım Kategorisindeki Başlık Sayısı</h3></div>
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <div class="c text-center">@ViewBag.TitleinYazilimCategory</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header text-center"><h3>Adında "a" Harfi Geçen Yazar Sayısı</h3></div>
+                <div class="card-body ">
+                    <h5 class="card-title"></h5>
+                    <div class="c text-center">@ViewBag.AuthorWithALetter</div>
+                </div>
+            </div>
+        </div>
+
+        <!--.row -->
+
+        <div class="row">
+            <div class="col-md-5 ml-2">
+                <div class="card text-white bg-warning mb-3">
+                    <div class="card-header text-center text-white"><h4>Aktif Kategori Sayısının Pasif Kategori Sayısından Farkı</h4></div>
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <div class="c text-center text-white">@ViewBag.DifferanceBetweenStatusTrueAndFalse</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="card text-white bg-danger mb-3 ml-2">
+                    <div class="card-header text-center mt-2"><h3>En Fazla Başlık Olan Kategori</h3></div>
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <h2 class="text-center">@ViewBag.CategoryHasMostTitle</h2>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

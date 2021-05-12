@@ -18,6 +18,16 @@ namespace CanturkFramework.Northwind.Business.DependencyResolvers.Ninject
             //Bind<IProductService>().ToConstant(WcfProxy<IProductService>.CreateChannel());
             Bind<ICategoryService>().To<CategoryManager>();
             Bind<ICategoryDal>().To<EfCategoryDal>();
+            Bind<IAboutService>().To<AboutManager>();
+            Bind<IAboutDal>().To<EfAboutDal>();
+            Bind<IAuthorService>().To<AuthorManager>();
+            Bind<IAuthorDal>().To<EfAuthorDal>();
+            Bind<IContactService>().To<ContactManager>();
+            Bind<IContactDal>().To<EfContactDal>();
+            Bind<IContentService>().To<ContentManager>();
+            Bind<IContentDal>().To<EfContentDal>();
+            Bind<ITitleService>().To<TitleManager>();
+            Bind<ITitleDal>().To<EfTitleDal>();
 
         }
     }
