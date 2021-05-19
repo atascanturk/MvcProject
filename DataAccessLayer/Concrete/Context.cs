@@ -9,7 +9,8 @@ namespace DataAccessLayer.Concrete
     {
         public Context()
         {
-            Database.SetInitializer<Context>(null);
+            //Database.SetInitializer<Context>(null);
+            this.Configuration.LazyLoadingEnabled = false;
         }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Category> Categories { get; set; }

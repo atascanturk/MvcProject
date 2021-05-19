@@ -12,5 +12,9 @@ namespace BusinessLayer.Abstract
     {
         int Count(Expression<Func<Author, bool>> filter = null);
         List<Author> GetAll(Expression<Func<Author, bool>> filter = null);
+        Author GetById(int id);
+        void Add(Author author);
+        void Delete(Author author);
+        void Update(Author author);
     }
 }

@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrete
+@model  List<Title>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td>ID</td>
+        <td>Başlık</td>
+        <td>Kategori</td>
+        <td>Yazar</td>
+        <td>Oluşturulma Tarihi</td>
+    </tr>
+   @foreach (var title in Model)
+   {
+    <tr>
+        <td>@title.Id</td>
+        <td>@title.Name</td>
+        <td>@title.Category.Name</td>
+        <td>@title.Author.Name  @title.Author.LastName</td>
+        <td>@title.Date.ToShortDateString()</td>
+    </tr>
+
+   }
+</table>
+
+<br />
+<a href="/Title/AddTitle" class="btn btn-info">Yeni Başlık Ekle</a>
+
+

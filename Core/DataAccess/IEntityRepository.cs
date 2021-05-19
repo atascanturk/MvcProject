@@ -10,7 +10,7 @@ namespace DataAccessLayer.Abstract
 {
     public interface IEntityRepository<T> where T : class, IEntity, new()
     {
-        List<T> GetAll(Expression<Func<T, bool>> filter = null);
+        List<T> GetAll(Expression<Func<T, bool>> filter = null, params Expression<Func<T, object>>[] includeProperties);
         T Get(Expression<Func<T, bool>> filter);
         void Add(T entity);
         void Update(T entity);

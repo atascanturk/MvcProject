@@ -14,5 +14,10 @@ namespace BusinessLayer.Abstract
         int Count(Expression<Func<Title, bool>> filter = null);
         List<Title> GetAll(Expression<Func<Title, bool>> filter = null);
         List<CategoryDetailsDto> GetCategoryDetails(Expression<Func<Category, bool>> filter = null);
+        Title GetById(int id);
+        void Add(Title title);
+        void Delete(Title title);
+        void Update(Title title);
+        
     }
 }

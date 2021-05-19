@@ -1,0 +1,44 @@
+﻿@model EntityLayer.Concrete.Author
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yazar Ekle</h1>
+<br />
+
+@using (Html.BeginForm("Add", "Author", FormMethod.Post)) 
+{
+<div class="form-group">
+    @Html.Label("Yazar Adı")
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Yazar Soyadı")
+    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.LastName, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("E-Posta")
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Mail, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Şifre")
+    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Ünvan")
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Title, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Görsel Link")
+    @Html.TextBoxFor(x => x.ImagePath, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ImagePath, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Hakkında")
+    @Html.TextBoxFor(x => x.About, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.About, "", new { @class = "text-danger" })
+    <br />
+    <button class="btn btn-info">Ekle</button>
+</div>
+}
+

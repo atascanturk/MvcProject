@@ -68,6 +68,7 @@
     <Compile Include="DependencyResolvers\Ninject\ServiceModule.cs" />
     <Compile Include="DependencyResolvers\Ninject\ValidationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidationRules\FluentValidation\AuthorValidator.cs" />
     <Compile Include="ValidationRules\FluentValidation\CategoryValidator.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -64,6 +64,18 @@
     <Compile Include="Concrete\EntityFramework\EfContactDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfContentDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfTitleDal.cs" />
+    <Compile Include="Migrations\202105142222040_AuthorAboutColumnAdded.cs" />
+    <Compile Include="Migrations\202105142222040_AuthorAboutColumnAdded.designer.cs">
+      <DependentUpon>202105142222040_AuthorAboutColumnAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105191853402_TitleColumnAdded.cs" />
+    <Compile Include="Migrations\202105191853402_TitleColumnAdded.designer.cs">
+      <DependentUpon>202105191853402_TitleColumnAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105192157419_AuthorIdAdded.cs" />
+    <Compile Include="Migrations\202105192157419_AuthorIdAdded.designer.cs">
+      <DependentUpon>202105192157419_AuthorIdAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -80,6 +92,17 @@
       <Project>{102983A5-0935-4A66-B4D5-AD93B297BF92}</Project>
       <Name>EntityLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105142222040_AuthorAboutColumnAdded.resx">
+      <DependentUpon>202105142222040_AuthorAboutColumnAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105191853402_TitleColumnAdded.resx">
+      <DependentUpon>202105191853402_TitleColumnAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105192157419_AuthorIdAdded.resx">
+      <DependentUpon>202105192157419_AuthorIdAdded.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
