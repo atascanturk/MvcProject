@@ -61,5 +61,6 @@ namespace MvcProject.UI.Controllers
             _titleService.Add(title);
             return RedirectToAction("Index");
         }
+      
     }
 }

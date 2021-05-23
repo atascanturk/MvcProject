@@ -138,6 +138,7 @@
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\TitleController.cs" />
@@ -2285,6 +2286,7 @@
     <Content Include="Views\Author\UpdateAuthor.cshtml" />
     <Content Include="Views\Title\Index.cshtml" />
     <Content Include="Views\Title\AddTitle.cshtml" />
+    <Content Include="Views\Content\ContentByTitle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

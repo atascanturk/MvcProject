@@ -76,6 +76,14 @@
     <Compile Include="Migrations\202105192157419_AuthorIdAdded.designer.cs">
       <DependentUpon>202105192157419_AuthorIdAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105232018525_ImagePathLengthIncreased.cs" />
+    <Compile Include="Migrations\202105232018525_ImagePathLengthIncreased.designer.cs">
+      <DependentUpon>202105232018525_ImagePathLengthIncreased.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105232031046_AddedStatusColumnToAuthor.cs" />
+    <Compile Include="Migrations\202105232031046_AddedStatusColumnToAuthor.designer.cs">
+      <DependentUpon>202105232031046_AddedStatusColumnToAuthor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -102,6 +110,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105192157419_AuthorIdAdded.resx">
       <DependentUpon>202105192157419_AuthorIdAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105232018525_ImagePathLengthIncreased.resx">
+      <DependentUpon>202105232018525_ImagePathLengthIncreased.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105232031046_AddedStatusColumnToAuthor.resx">
+      <DependentUpon>202105232031046_AddedStatusColumnToAuthor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

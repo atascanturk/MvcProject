@@ -12,11 +12,36 @@ namespace BusinessLayer.Concrete
 {
     public class ContentManager : IContentService
     {
-        IContentDal _contentDal;
+        private readonly IContentDal _contentDal;
+
+        public void Add(Content content)
+        {
+            _contentDal.Add(content);
+        }
 
         public int Count(Expression<Func<Content, bool>> filter = null)
         {
             return _contentDal.Count(filter);
+        }
+
+        public void Delete(Content content)
+        {
+            _contentDal.Delete(content);
+        }
+
+        public List<Content> GetAll(Expression<Func<Content, bool>> filter = null)
+        {
+           return  _contentDal.GetAll(filter);
+        }
+
+        public Content GetById(int id)
+        {
+            return _contentDal.Get(x => x.Id == id);
+        }
+
+        public void Update(Content content)
+        {
+            _contentDal.Update(content);
         }
     }
 }

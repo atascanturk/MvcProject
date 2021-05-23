@@ -19,7 +19,7 @@ namespace EntityLayer.Concrete
         [StringLength(50)]
         public string LastName { get; set; }
 
-        [StringLength(100)]
+        [StringLength(250)]
         public string ImagePath { get; set; }
 
         [StringLength(100)]
@@ -33,6 +33,8 @@ namespace EntityLayer.Concrete
 
         [StringLength(50)]
         public string Title { get; set; }
+
+        public bool Status { get; set; }
 
         public ICollection<Title> Titles { get; set; }
         public ICollection<Content> Contents  { get; set; }
