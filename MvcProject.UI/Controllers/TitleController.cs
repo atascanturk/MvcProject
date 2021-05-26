@@ -26,7 +26,7 @@ namespace MvcProject.UI.Controllers
         public ActionResult Index()
         {                     
 
-            var titles = _titleService.GetAll();
+            var titles = _titleService.GetAllByNonDeleted();
             return View(titles);
         }
 
@@ -61,6 +61,36 @@ namespace MvcProject.UI.Controllers
             _titleService.Add(title);
             return RedirectToAction("Index");
         }
-      
+
+        [HttpGet]
+        public ActionResult UpdateTitle(int id)
+        {
+            List<SelectListItem> categoryValues = (from x in _categoryService.GetAll()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.Name,
+                                                       Value = x.Id.ToString(),
+
+                                                   }).ToList();
+            ViewBag.ValueCategories = categoryValues;
+            var updatedTitle = _titleService.GetById(id);
+            return View(updatedTitle);
+        }
+        [HttpPost]
+        public ActionResult UpdateTitle(Title title)
+        {          
+            _titleService.Update(title);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult DeleteTitle(int id)
+        {
+            var deletedTitle = _titleService.GetById(id);
+            deletedTitle.Status = false;
+            _titleService.Update(deletedTitle);
+            return RedirectToAction("Index");
+        }
+
     }
 }

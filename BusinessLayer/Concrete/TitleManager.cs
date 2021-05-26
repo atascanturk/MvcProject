@@ -40,6 +40,11 @@ namespace BusinessLayer.Concrete
             return _titleDal.GetAll(filter,t=>t.Category,t => t.Author);
         }
 
+        public List<Title> GetAllByNonDeleted(Expression<Func<Title, bool>> filter = null)
+        {
+            return _titleDal.GetAll(x => x.Status == true, t => t.Category, t => t.Author);
+        }
+
         public Title GetById(int id)
         {
            return _titleDal.Get(t => t.Id == id);

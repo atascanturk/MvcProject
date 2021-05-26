@@ -14,6 +14,11 @@ namespace BusinessLayer.Concrete
     {
         private readonly IContentDal _contentDal;
 
+        public ContentManager(IContentDal contentDal)
+        {
+            _contentDal = contentDal;           
+        }
+
         public void Add(Content content)
         {
             _contentDal.Add(content);
@@ -37,6 +42,11 @@ namespace BusinessLayer.Concrete
         public Content GetById(int id)
         {
             return _contentDal.Get(x => x.Id == id);
+        }
+
+        public List<Content> GetByTitleId(int titleId)
+        {
+           return _contentDal.GetAll(x => x.TitleId== titleId,x=>x.Author);
         }
 
         public void Update(Content content)

@@ -1,4 +1,7 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Content>
+
+
 @{
     ViewBag.Title = "ContentByTitle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -18,21 +21,26 @@
                         <!-- The time line -->
                         <div class="timeline">
                             <!-- timeline time label -->
+                            @foreach (var content in Model)
+                            {
+
                             <div class="time-label">
-                                <span class="bg-success">Tarih</span>
+                                <span class="bg-success">@content.Date.ToShortDateString()</span>
                             </div>
                             <!-- /.timeline-label -->
                             <!-- timeline item -->
                             <div>
                                 <i class="fas fa-comment bg-yellow"></i>
                                 <div class="timeline-item">
-                                    <h3 class="timeline-header"><a href="#">Test</a> Deneme</h3>
+                                    <h3 class="timeline-header"><a href="#">@content.Author.Name @content.Author.LastName</a></h3>
                                     <div class="timeline-body">
-                                        İçerik
+                                        @content.ContentValue
                                     </div>
                                 </div>
                             </div>
                             <!-- END timeline item -->
+
+                            }
                         </div>
                     </div>
                     <!-- /.col -->

@@ -84,6 +84,14 @@
     <Compile Include="Migrations\202105232031046_AddedStatusColumnToAuthor.designer.cs">
       <DependentUpon>202105232031046_AddedStatusColumnToAuthor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105261844302_StatusColumnAddedToContent.cs" />
+    <Compile Include="Migrations\202105261844302_StatusColumnAddedToContent.designer.cs">
+      <DependentUpon>202105261844302_StatusColumnAddedToContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105261852019_StatusColumnAddedToTitle.cs" />
+    <Compile Include="Migrations\202105261852019_StatusColumnAddedToTitle.designer.cs">
+      <DependentUpon>202105261852019_StatusColumnAddedToTitle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -116,6 +124,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105232031046_AddedStatusColumnToAuthor.resx">
       <DependentUpon>202105232031046_AddedStatusColumnToAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105261844302_StatusColumnAddedToContent.resx">
+      <DependentUpon>202105261844302_StatusColumnAddedToContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105261852019_StatusColumnAddedToTitle.resx">
+      <DependentUpon>202105261852019_StatusColumnAddedToTitle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
