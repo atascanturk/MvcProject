@@ -15,7 +15,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
     <!-- IonIcons -->
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
@@ -49,7 +49,6 @@ to get the desired effect
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
-       
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -81,18 +80,18 @@ to get the desired effect
                             <a href="/AdminCategory/Index" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                   Kategoriler
-                                   
+                                    Kategoriler
+
                                 </p>
                             </a>
-                         
+
                         </li>
                         <li class="nav-item">
                             <a href="/Title/Index" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Başlıklar
-                                    
+
                                 </p>
                             </a>
                         </li>
@@ -101,10 +100,10 @@ to get the desired effect
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
                                     Yazarlar
-                                   
+
                                 </p>
                             </a>
-                          
+
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
@@ -136,42 +135,42 @@ to get the desired effect
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/About/Index" class="nav-link">
                                 <i class="nav-icon fas fa-tree"></i>
                                 <p>
-                                   Hakkımızda
-                                   
+                                    Hakkımızda
+
                                 </p>
                             </a>
-                            
+
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
                                     İletişim & Mesajlar
-                                    
+
                                 </p>
                             </a>
-                            
+
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
                                     Yazılar
-                                   
+
                                 </p>
                             </a>
-                            
+
                         </li>
-                        
+
                         <li class="nav-item">
                             <a href="pages/calendar.html" class="nav-link">
                                 <i class="nav-icon fas fa-calendar-alt"></i>
                                 <p>
-                                   Yetkilendirmeler
-                                   
+                                    Yetkilendirmeler
+
                                 </p>
                             </a>
                         </li>
@@ -187,7 +186,7 @@ to get the desired effect
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>
-                                   Hata Sayfaları
+                                    Hata Sayfaları
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -270,23 +269,23 @@ to get the desired effect
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
-                                   Siteye git
-                                   
+                                    Siteye git
+
                                 </p>
                             </a>
-                            
+
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-door-open"></i>
                                 <p>
                                     Çıkış Yap
-                                  
+
                                 </p>
                             </a>
-                            
+
                         </li>
-                        
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -301,7 +300,7 @@ to get the desired effect
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <!-- /.col -->
-                        <div >
+                        <div>
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item active">Dashboard v3</li>
@@ -318,12 +317,11 @@ to get the desired effect
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-     
         <!-- Main Footer -->
         <footer class="main-footer">
             <strong>Copyright &copy; 2021 <a href="http://adminlte.io">Designed By Canturk Atas</a>.</strong>
             All rights reserved.
-                       
+
         </footer>
     </div>
     <!-- ./wrapper -->
@@ -339,5 +337,46 @@ to get the desired effect
     <script src="~/AdminLTE-3.0.4/plugins/chart.js/Chart.min.js"></script>
     <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
     <script src="~/AdminLTE-3.0.4/dist/js/pages/dashboard3.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Enable check and uncheck all functionality
+            $('.checkbox-toggle').click(function () {
+                var clicks = $(this).data('clicks')
+                if (clicks) {
+                    //Uncheck all checkboxes
+                    $('.mailbox-messages input[type=\'checkbox\']').prop('checked', false)
+                    $('.checkbox-toggle .far.fa-check-square').removeClass('fa-check-square').addClass('fa-square')
+                } else {
+                    //Check all checkboxes
+                    $('.mailbox-messages input[type=\'checkbox\']').prop('checked', true)
+                    $('.checkbox-toggle .far.fa-square').removeClass('fa-square').addClass('fa-check-square')
+                }
+                $(this).data('clicks', !clicks)
+            })
+
+            //Handle starring for glyphicon and font awesome
+            $('.mailbox-star').click(function (e) {
+                e.preventDefault()
+                //detect type
+                var $this = $(this).find('a > i')
+                var glyph = $this.hasClass('glyphicon')
+                var fa = $this.hasClass('fa')
+
+                //Switch states
+                if (glyph) {
+                    $this.toggleClass('glyphicon-star')
+                    $this.toggleClass('glyphicon-star-empty')
+                }
+
+                if (fa) {
+                    $this.toggleClass('fa-star')
+                    $this.toggleClass('fa-star-o')
+                }
+            })
+        })
+    </script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
 </body>
+
 </html>
