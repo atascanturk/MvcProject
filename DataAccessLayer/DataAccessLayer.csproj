@@ -56,6 +56,7 @@
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\ITitleDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\EntityFramework\EfAboutDal.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfContactDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfContentDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfMessageDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfTitleDal.cs" />
     <Compile Include="Migrations\202105142222040_AuthorAboutColumnAdded.cs" />
     <Compile Include="Migrations\202105142222040_AuthorAboutColumnAdded.designer.cs">
@@ -91,6 +93,10 @@
     <Compile Include="Migrations\202105261852019_StatusColumnAddedToTitle.cs" />
     <Compile Include="Migrations\202105261852019_StatusColumnAddedToTitle.designer.cs">
       <DependentUpon>202105261852019_StatusColumnAddedToTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106012037332_AddedMessageClass.cs" />
+    <Compile Include="Migrations\202106012037332_AddedMessageClass.designer.cs">
+      <DependentUpon>202106012037332_AddedMessageClass.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105261852019_StatusColumnAddedToTitle.resx">
       <DependentUpon>202105261852019_StatusColumnAddedToTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106012037332_AddedMessageClass.resx">
+      <DependentUpon>202106012037332_AddedMessageClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
