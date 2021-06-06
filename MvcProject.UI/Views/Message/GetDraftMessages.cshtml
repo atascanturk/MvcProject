@@ -1,8 +1,6 @@
-﻿@using EntityLayer.Concrete
-@model List<Contact>
-
+﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "GetDraftMessages";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -18,7 +16,7 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Mesajlar</h1>
-                </div>                
+                </div>
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -70,23 +68,23 @@
                         <div class="table-responsive mailbox-messages">
                             <table class="table table-hover table-striped">
                                 <tbody>
-                                    @foreach (var contact in Model)
+                                    @foreach (var message in Model)
                                     {
-                                    <tr>
-                                        <td>
-                                            <div class="icheck-primary">
-                                                <input type="checkbox" value="" id="check1">
-                                                <label for="check1"></label>
-                                            </div>
-                                        </td>
-                                        <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                        <td class="mailbox-name"><a href="/Contact/GetContactDetails/@contact.Id">@contact.UserName</a></td>
-                                        <td class="mailbox-subject">
-                                            <b>@contact.Subject</b> - @contact.Message
-                                        </td>
-                                        <td class="mailbox-attachment"></td>
-                                        <td class="mailbox-date">@contact.Date</td>
-                                    </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="icheck-primary">
+                                                    <input type="checkbox" value="" id="check1">
+                                                    <label for="check1"></label>
+                                                </div>
+                                            </td>
+                                            <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
+                                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@message.Id">@message.From</a></td>
+                                            <td class="mailbox-subject">
+                                                <b>@message.Subject</b> - @message.Content
+                                            </td>
+                                            <td class="mailbox-attachment"></td>
+                                            <td class="mailbox-date">5 mins ago</td>
+                                        </tr>
                                     }
                                 </tbody>
                             </table>
@@ -129,3 +127,6 @@
 
 </body>
 </html>
+
+
+

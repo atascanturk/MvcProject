@@ -36,6 +36,9 @@ namespace CanturkFramework.Northwind.Business.DependencyResolvers.Ninject
 
             Bind<IMessageService>().To<MessageManager>();
             Bind<IMessageDal>().To<EfMessageDal>();
+
+            Bind<IImageService>().To<ImageManager>();
+            Bind<IImageDal>().To<EfImageDal>();
             
 
 

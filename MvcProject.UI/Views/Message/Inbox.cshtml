@@ -3,6 +3,7 @@
 @model List<Message>
 
 @{
+    
     ViewBag.Title = "Inbox";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
@@ -26,7 +27,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            @Html.Action("MessageListMenu", "Contact")
+            @Html.Action("MessageListMenu", "Message")
             <!-- /.col -->
             <div class="col-md-9">
                 <div class="card card-primary card-outline">
@@ -81,12 +82,12 @@
                                                 </div>
                                             </td>
                                             <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@message.Id">@message.From</a></td>
+                                            <td class="mailbox-name"><a href="/Message/GetInboxMessageDetails/@message.Id">@message.From</a></td>
                                             <td class="mailbox-subject">
                                                 <b>@message.Subject</b> - @message.Content
                                             </td>
                                             <td class="mailbox-attachment"></td>
-                                            <td class="mailbox-date">5 mins ago</td>
+                                            <td class="mailbox-date">@message.Date</td>
                                         </tr>
                                     }
                                 </tbody>

@@ -19,5 +19,6 @@ namespace DataAccessLayer.Concrete
         public DbSet<Title> Titles { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<Image> Images { get; set; }
     }
 }

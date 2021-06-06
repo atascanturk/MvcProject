@@ -26,7 +26,7 @@ namespace BusinessLayer.Concrete
 
         public int Count(Expression<Func<Message, bool>> filter = null)
         {
-            return _messageDal.Count();
+            return _messageDal.Count(filter);
         }
 
         public void Delete(Message message)

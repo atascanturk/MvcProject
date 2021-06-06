@@ -141,6 +141,8 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
+    <Compile Include="Controllers\GaleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
@@ -170,6 +172,10 @@
     <Content Include="AdminLTE-3.0.4\build\npm\DocsPublish.js" />
     <Content Include="AdminLTE-3.0.4\build\npm\Plugins.js" />
     <Content Include="AdminLTE-3.0.4\build\npm\Publish.js" />
+    <Content Include="AdminLTE-3.0.4\colorlib-error-404-10\css\style.css" />
+    <Content Include="AdminLTE-3.0.4\colorlib-error-404-10\img\bg.jpg" />
+    <Content Include="AdminLTE-3.0.4\colorlib-error-404-10\index.html" />
+    <Content Include="AdminLTE-3.0.4\colorlib-error-404-10\readme.txt" />
     <Content Include="AdminLTE-3.0.4\dist\css\adminlte.css" />
     <Content Include="AdminLTE-3.0.4\dist\css\adminlte.min.css" />
     <Content Include="AdminLTE-3.0.4\dist\css\alt\adminlte.components.css" />
@@ -2295,10 +2301,15 @@
     <Content Include="Views\About\AboutPartial.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\GetContactDetails.cshtml" />
-    <Content Include="Views\Contact\MessageListMenu.cshtml" />
+    <Content Include="Views\Message\MessageListMenu.cshtml" />
     <Content Include="Views\Message\Inbox.cshtml" />
     <Content Include="Views\Message\SentMessages.cshtml" />
     <Content Include="Views\Message\NewMessage.cshtml" />
+    <Content Include="Views\Message\GetDraftMessages.cshtml" />
+    <Content Include="Views\Message\GetInboxMessageDetails.cshtml" />
+    <Content Include="Views\Message\GetSentMessageDetails.cshtml" />
+    <Content Include="Views\ErrorPage\Page404.cshtml" />
+    <Content Include="Views\Galery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

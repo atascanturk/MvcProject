@@ -20,7 +20,8 @@ namespace EntityLayer.Concrete
         public string Subject { get; set; }
         [StringLength(100)]
         public string Content { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
+        public bool isDraft { get; set; } = false;
 
 
     }

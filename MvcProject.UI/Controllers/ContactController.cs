@@ -33,9 +33,6 @@ namespace MvcProject.UI.Controllers
             return View(contact);
         }
 
-        public PartialViewResult MessageListMenu()
-        {
-            return PartialView();
-        }
+       
     }
 }
