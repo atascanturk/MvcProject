@@ -71,21 +71,27 @@ to get the desired effect
                     </div>
                 </div>
 
+                                    
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                             with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview">
-                            <a href="/AdminCategory/Index" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Kategoriler
+    with font-awesome or any other icon font library -->
 
-                                </p>
-                            </a>
+                        @if (User.IsInRole("B"))
+                        {
+                            <li class="nav-item has-treeview">
+                                <a href="/AdminCategory/Index" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Kategoriler
 
-                        </li>
+                                    </p>
+                                </a>
+
+                            </li>
+
+                        }
                         <li class="nav-item">
                             <a href="/Title/Index" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -186,7 +192,7 @@ to get the desired effect
                             <a href="/ErrorPage/Page404/" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>
-                                    Hata Sayfaları                                   
+                                    Hata Sayfaları
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">

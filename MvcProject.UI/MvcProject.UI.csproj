@@ -144,6 +144,7 @@
     <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\GaleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\TitleController.cs" />
@@ -151,6 +152,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminLTE-3.0.4\.gitignore" />
@@ -188,6 +190,8 @@
     <Content Include="AdminLTE-3.0.4\dist\css\alt\adminlte.pages.min.css" />
     <Content Include="AdminLTE-3.0.4\dist\css\alt\adminlte.plugins.css" />
     <Content Include="AdminLTE-3.0.4\dist\css\alt\adminlte.plugins.min.css" />
+    <Content Include="AdminLTE-3.0.4\dist\css\styles.css" />
+    <Content Include="AdminLTE-3.0.4\dist\css\userLogin.css" />
     <Content Include="AdminLTE-3.0.4\dist\img\2.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\4.png" />
     <Content Include="AdminLTE-3.0.4\dist\img\AdminLTELogo.png" />
@@ -230,6 +234,7 @@
     <Content Include="AdminLTE-3.0.4\dist\js\pages\dashboard.js" />
     <Content Include="AdminLTE-3.0.4\dist\js\pages\dashboard2.js" />
     <Content Include="AdminLTE-3.0.4\dist\js\pages\dashboard3.js" />
+    <Content Include="AdminLTE-3.0.4\dist\js\scripts.js" />
     <Content Include="AdminLTE-3.0.4\docs\404.html" />
     <Content Include="AdminLTE-3.0.4\docs\assets\css\adminlte.css" />
     <Content Include="AdminLTE-3.0.4\docs\assets\css\adminlte.min.css" />
@@ -2310,6 +2315,7 @@
     <Content Include="Views\Message\GetSentMessageDetails.cshtml" />
     <Content Include="Views\ErrorPage\Page404.cshtml" />
     <Content Include="Views\Galery\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2336,6 +2342,10 @@
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{AA7E387F-4835-42B9-8A29-1D9EDAB1DC94}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{6A04B2D7-9C52-45CE-A3CE-B69BC0E73DD9}</Project>
+      <Name>DataAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
       <Project>{102983A5-0935-4A66-B4D5-AD93B297BF92}</Project>

@@ -39,7 +39,10 @@ namespace CanturkFramework.Northwind.Business.DependencyResolvers.Ninject
 
             Bind<IImageService>().To<ImageManager>();
             Bind<IImageDal>().To<EfImageDal>();
-            
+
+            Bind<IAdminService>().To<AdminManager>();
+            Bind<IAdminDal>().To<EfAdminDal>();
+
 
 
         }
