@@ -50,7 +50,10 @@
     <Compile Include="Concrete\Content.cs" />
     <Compile Include="Concrete\Image.cs" />
     <Compile Include="Concrete\Message.cs" />
+    <Compile Include="Concrete\MySkill.cs" />
     <Compile Include="Concrete\Title.cs" />
+    <Compile Include="DTOs\AdminAddDto.cs" />
+    <Compile Include="DTOs\AdminForLoginDto.cs" />
     <Compile Include="DTOs\CategoryDetailsDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

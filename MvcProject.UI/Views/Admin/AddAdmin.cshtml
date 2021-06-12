@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "AddAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddAdmin", "Admin", FormMethod.Post))
+{
+    if (ViewBag.Message == null)
+    {
+
+
+        <form class="ml-3">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label>Kullanıcı Adı</label>
+                        <input class="form-control" placeholder="Lütfen bir kullanıcı adı giriniz" name="UserName" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" placeholder="Lütfen bir kullanıcı adı giriniz" name="Email" />
+                    </div>
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        <input type="password" class="form-control" placeholder="Lütfen bir şifre giriniz" name="Password" />
+                    </div>
+                    @Html.ValidationMessage("Password", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label>Şifre Tekrar</label>
+                        <input type="password" class="form-control" placeholder="Lütfen bir şifre giriniz" name="PasswordRepeat" />
+                    </div>
+                    @Html.ValidationMessage("Password", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        <label>Rol</label>
+                        <select class="form-control" placeholder="Lütfen bir rol seçiniz" name="Role">
+                            <option selected>A</option>
+                            <option>B</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" style="float:right" class="btn btn-primary">Ekle</button>
+                </div>
+            </div>
+        </form>
+    }
+
+    else
+    {
+        <h2> @ViewBag.Message</h2>
+    }
+
+
+}

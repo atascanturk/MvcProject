@@ -57,6 +57,7 @@
     <Compile Include="Abstract\IContactService.cs" />
     <Compile Include="Abstract\IContentService.cs" />
     <Compile Include="Abstract\IImageService.cs" />
+    <Compile Include="Abstract\IMySkillService.cs" />
     <Compile Include="Abstract\ITitleService.cs" />
     <Compile Include="Abstract\IMessageService.cs" />
     <Compile Include="Concrete\AboutManager.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Concrete\ContentManager.cs" />
     <Compile Include="Concrete\ImageManager.cs" />
     <Compile Include="Concrete\MessageManager.cs" />
+    <Compile Include="Concrete\MySkillManager.cs" />
     <Compile Include="Concrete\TitleManager.cs" />
     <Compile Include="DependencyResolvers\Ninject\AutoMapperModule.cs" />
     <Compile Include="DependencyResolvers\Ninject\BusinessModule.cs" />

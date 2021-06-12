@@ -33,6 +33,13 @@ namespace MvcProject.UI.Controllers
             return View(contact);
         }
 
+        public PartialViewResult GetContacts()
+        {
+
+            ViewBag.ContactCount= _contactService.Count();
+            return PartialView();
+        }
+
        
     }
 }

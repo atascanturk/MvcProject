@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using EntityLayer.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,9 @@ namespace BusinessLayer.Abstract
 {
     public interface IAdminService
     {
-        Admin GetByUserNameAndPassword(string userName, string password);
+        bool GetByUserEmailAndPassword(AdminForLoginDto adminForLoginDto);
         Admin Get(Expression<Func<Admin, bool>> filter = null);
-        void Add(Admin admin);
+        void Add(AdminAddDto adminAddDto, string password);
         void Delete(Admin admin);
         void Update(Admin admin);
     }

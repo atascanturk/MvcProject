@@ -43,6 +43,9 @@ namespace CanturkFramework.Northwind.Business.DependencyResolvers.Ninject
             Bind<IAdminService>().To<AdminManager>();
             Bind<IAdminDal>().To<EfAdminDal>();
 
+            Bind<IMySkillService>().To<MySkillManager>();
+            Bind<IMySkillDal>().To<EfMySkillDal>();
+
 
 
         }

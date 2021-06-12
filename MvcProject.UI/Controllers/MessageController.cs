@@ -73,10 +73,19 @@ namespace MvcProject.UI.Controllers
             return View(draftMessages);
         }
 
+        [HttpGet]
+        public ActionResult GetNotSeenMessages()
+        {
+            var notSeenMessages = _messageService.GetAll(x => x.isSeen == false);
+            return View(notSeenMessages);
+        }
+
         public ActionResult GetInboxMessageDetails(int id)
         {
-            var values = _messageService.GetById(id);
-            return View(values);
+            var message = _messageService.GetById(id);
+            message.isSeen = true;
+            _messageService.Update(message);
+            return View(message);
         }
 
         public ActionResult GetSentMessageDetails(int id)
@@ -148,6 +157,7 @@ namespace MvcProject.UI.Controllers
 
         public PartialViewResult MessageListMenu()
         {
+            ViewBag.NotSeen = _messageService.Count(x => x.isSeen == false);
             ViewBag.MessageCount = _messageService.Count(x => x.From == "admin@FROM.com");
             ViewBag.SentMessagesCount = _messageService.Count(x => x.To == "admin@TO.com");
             ViewBag.DraftMessagesCount = _messageService.Count(x => x.isDraft == true);

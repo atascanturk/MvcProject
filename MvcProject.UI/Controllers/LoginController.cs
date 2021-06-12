@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,23 +28,25 @@ namespace MvcProject.UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Admin admin)
+        public ActionResult Index(AdminForLoginDto adminForLoginDto)
         {
-            var adminUser = _adminService.GetByUserNameAndPassword(admin.UserName, admin.Password);
+            var isAuthorizated = _adminService.GetByUserEmailAndPassword(adminForLoginDto);
 
 
-            if (adminUser != null)
+            if (isAuthorizated)
             {
-                FormsAuthentication.SetAuthCookie(adminUser.UserName, false);
-                Session["UserName"] = adminUser.UserName;
+                var admin = _adminService.Get(x => x.Email == adminForLoginDto.Email);
+                FormsAuthentication.SetAuthCookie(admin.UserName, false);
+                Session["UserName"] = admin.UserName;
                 return  RedirectToAction("Index", "AdminCategory");
             }
 
             else
             {
-                RedirectToAction("Index");
+                ModelState.AddModelError("PasswordOrUserNameError", "Kullanıcı adı ve/veya şifre hatalı.");
+                return View();
             }
-            return View();
+           
         }
     }
 }

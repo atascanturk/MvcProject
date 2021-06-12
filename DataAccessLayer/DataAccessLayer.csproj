@@ -59,6 +59,7 @@
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IImageDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
+    <Compile Include="Abstract\IMySkillDal.cs" />
     <Compile Include="Abstract\ITitleDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\EntityFramework\EfAboutDal.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Concrete\EntityFramework\EfContentDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfImageDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfMessageDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfMySkillDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfTitleDal.cs" />
     <Compile Include="Migrations\202105142222040_AuthorAboutColumnAdded.cs" />
     <Compile Include="Migrations\202105142222040_AuthorAboutColumnAdded.designer.cs">
@@ -117,6 +119,26 @@
     <Compile Include="Migrations\202106091229207_AdminTableAdded.cs" />
     <Compile Include="Migrations\202106091229207_AdminTableAdded.designer.cs">
       <DependentUpon>202106091229207_AdminTableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106112300243_NewColumnsAddedToAuthorAndPasswordAndMessage.cs" />
+    <Compile Include="Migrations\202106112300243_NewColumnsAddedToAuthorAndPasswordAndMessage.designer.cs">
+      <DependentUpon>202106112300243_NewColumnsAddedToAuthorAndPasswordAndMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106121904131_UserNameColumnAddedToAdmin.cs" />
+    <Compile Include="Migrations\202106121904131_UserNameColumnAddedToAdmin.designer.cs">
+      <DependentUpon>202106121904131_UserNameColumnAddedToAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106121911350_PasswordHashAndPasswordSaltLenghtAreIncreased.cs" />
+    <Compile Include="Migrations\202106121911350_PasswordHashAndPasswordSaltLenghtAreIncreased.designer.cs">
+      <DependentUpon>202106121911350_PasswordHashAndPasswordSaltLenghtAreIncreased.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106121917154_StringLenghtRemovedFromAdminPasswordBytes.cs" />
+    <Compile Include="Migrations\202106121917154_StringLenghtRemovedFromAdminPasswordBytes.designer.cs">
+      <DependentUpon>202106121917154_StringLenghtRemovedFromAdminPasswordBytes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106122038125_MySkillsTableAdded.cs" />
+    <Compile Include="Migrations\202106122038125_MySkillsTableAdded.designer.cs">
+      <DependentUpon>202106122038125_MySkillsTableAdded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -171,6 +193,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106091229207_AdminTableAdded.resx">
       <DependentUpon>202106091229207_AdminTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106112300243_NewColumnsAddedToAuthorAndPasswordAndMessage.resx">
+      <DependentUpon>202106112300243_NewColumnsAddedToAuthorAndPasswordAndMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106121904131_UserNameColumnAddedToAdmin.resx">
+      <DependentUpon>202106121904131_UserNameColumnAddedToAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106121911350_PasswordHashAndPasswordSaltLenghtAreIncreased.resx">
+      <DependentUpon>202106121911350_PasswordHashAndPasswordSaltLenghtAreIncreased.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106121917154_StringLenghtRemovedFromAdminPasswordBytes.resx">
+      <DependentUpon>202106121917154_StringLenghtRemovedFromAdminPasswordBytes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106122038125_MySkillsTableAdded.resx">
+      <DependentUpon>202106122038125_MySkillsTableAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

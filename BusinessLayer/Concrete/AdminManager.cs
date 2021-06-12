@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Abstract;
+using Core.Utilities.Security.Hashing;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using EntityLayer.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +21,21 @@ namespace BusinessLayer.Concrete
             _adminDal = adminDal;
         }
 
-        public void Add(Admin admin)
+        public void Add(AdminAddDto adminAddDto,string password)
         {
+            byte[] passwordHash, passwordSalt;
+            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);        
+          
+            var admin = new Admin
+            {
+                Email = adminAddDto.Email,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                UserName = adminAddDto.UserName,
+                Role=adminAddDto.Role
+
+            };
+
             _adminDal.Add(admin);
         }
 
@@ -34,9 +49,25 @@ namespace BusinessLayer.Concrete
             return _adminDal.Get(filter);
         }
 
-        public Admin GetByUserNameAndPassword(string userName, string password)
+        public bool GetByUserEmailAndPassword(AdminForLoginDto adminForLoginDto)
         {
-           return _adminDal.Get(x => x.UserName == userName & x.Password == password);
+
+            var userToCheck = _adminDal.Get(x => x.Email == adminForLoginDto.Email);
+
+            if (userToCheck == null)
+            {
+                return false;
+            }
+
+            if (!HashingHelper.VerifyPasswordHash(adminForLoginDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
+            {
+                return false;
+            }
+
+            return true;
+
+
+
         }
 
         public void Update(Admin admin)

@@ -24,5 +24,7 @@ namespace EntityLayer.Concrete
 
         [StringLength(100)]
         public string ImagePath2 { get; set; }
+
+        public bool isActive { get; set; } = true;
     }
 }

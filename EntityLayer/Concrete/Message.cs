@@ -22,6 +22,7 @@ namespace EntityLayer.Concrete
         public string Content { get; set; }
         public DateTime Date { get; set; } = DateTime.Now;
         public bool isDraft { get; set; } = false;
+        public bool isSeen { get; set; } = false;
 
 
     }

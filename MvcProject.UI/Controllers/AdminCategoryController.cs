@@ -19,7 +19,7 @@ namespace MvcProject.UI.Controllers
             _categoryManager = categoryManager;
         }
 
-        [Authorize(Roles="B")]
+        [Authorize(Roles="A")]
         public ActionResult Index()
         {
             var categories = _categoryManager.GetAll();
