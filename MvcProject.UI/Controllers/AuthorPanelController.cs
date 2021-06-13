@@ -8,32 +8,32 @@ using System.Web.Mvc;
 
 namespace MvcProject.UI.Controllers
 {
-    public class TitleController : Controller
+    public class AuthorPanelController : Controller
     {
-        // GET: Title
-
         ITitleService _titleService;
         ICategoryService _categoryService;
-        IAuthorService _authorService;
 
-        public TitleController(ITitleService titleService, ICategoryService categoryService, IAuthorService authorService)
+        public AuthorPanelController(ITitleService titleService, ICategoryService categoryService)
         {
             _titleService = titleService;
             _categoryService = categoryService;
-            _authorService = authorService;
         }
 
-        public ActionResult Index()
-        {                     
+        public ActionResult AuthorProfile()
+        {
+            return View();
+        }
 
-            var titles = _titleService.GetAllByNonDeleted(null);
-            return View(titles);
+        public ActionResult MyTitles()
+        {
+          
+            var headings = _titleService.GetAllByNonDeleted(3);
+            return View(headings);
         }
 
         [HttpGet]
-        public ActionResult AddTitle()
+        public ActionResult NewTitle()
         {
-            //var categories = _categoryService.GetAll();
             List<SelectListItem> categoryValues = (from x in _categoryService.GetAll()
                                                    select new SelectListItem
                                                    {
@@ -41,25 +41,17 @@ namespace MvcProject.UI.Controllers
                                                        Value = x.Id.ToString(),
 
                                                    }).ToList();
-
-            List<SelectListItem> authorValues = (from x in _authorService.GetAll()
-                                                   select new SelectListItem
-                                                   {
-                                                       Text = x.Name +" "+ x.LastName,
-                                                       Value = x.Id.ToString(),
-
-                                                   }).ToList();
-
             ViewBag.ValueCategories = categoryValues;
-            ViewBag.ValueAuthors = authorValues;
-           return View();
+            return View();
         }
 
         [HttpPost]
-        public ActionResult AddTitle(Title title)
+        public ActionResult NewTitle(Title title)
         {
+            title.AuthorId = 1;
             _titleService.Add(title);
-            return RedirectToAction("Index");
+            return RedirectToAction("MyTitles");
+
         }
 
         [HttpGet]
@@ -78,9 +70,9 @@ namespace MvcProject.UI.Controllers
         }
         [HttpPost]
         public ActionResult UpdateTitle(Title title)
-        {          
+        {
             _titleService.Update(title);
-            return RedirectToAction("Index");
+            return RedirectToAction("MyTitles");
         }
 
         [HttpGet]
@@ -89,8 +81,7 @@ namespace MvcProject.UI.Controllers
             var deletedTitle = _titleService.GetById(id);
             deletedTitle.Status = false;
             _titleService.Update(deletedTitle);
-            return RedirectToAction("Index");
+            return RedirectToAction("MyTitles");
         }
-
     }
 }

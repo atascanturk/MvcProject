@@ -1,0 +1,28 @@
+﻿@model EntityLayer.Concrete.Title
+@{
+    ViewBag.Title = "UpdateTitle";
+    Layout = "~/Views/Shared/_AuthorLayout.cshtml";
+}
+
+<h2>Güncelle</h2>
+
+@using (Html.BeginForm("UpdateTitle", "AuthorPanel", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">                
+                @Html.HiddenFor(x => x.Id)               
+                @Html.HiddenFor(x => x.AuthorId)               
+                @Html.HiddenFor(x => x.Date)               
+                @Html.Label("Başlık")
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                <br />            
+                @Html.Label("Category")
+                @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.ValueCategories, new { @class = "form-control" })
+                <br />
+                <button class="btn btn-success">Güncelle</button>
+            </div>
+        </div>
+    </div>
+
+}

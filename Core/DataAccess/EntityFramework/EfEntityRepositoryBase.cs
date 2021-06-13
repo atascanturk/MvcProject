@@ -55,7 +55,7 @@ namespace Core.DataAccess.EntityFramework
         }
 
 
-        public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includeProperties)
+        public List<TEntity> GetAll( Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includeProperties)
         {
 
             using (TContext context = new TContext())

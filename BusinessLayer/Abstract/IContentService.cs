@@ -14,6 +14,7 @@ namespace BusinessLayer.Abstract
         List<Content> GetAll(Expression<Func<Content, bool>> filter = null);
         Content GetById(int id);
         List<Content> GetByTitleId(int titleId);
+        List<Content> GetByAuthorId(int authorId);
         void Add(Content content);
         void Delete(Content content);
         void Update(Content content);

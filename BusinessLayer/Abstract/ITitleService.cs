@@ -13,7 +13,7 @@ namespace BusinessLayer.Abstract
     {
         int Count(Expression<Func<Title, bool>> filter = null);
         List<Title> GetAll(Expression<Func<Title, bool>> filter = null);
-        List<Title> GetAllByNonDeleted(Expression<Func<Title, bool>> filter = null);
+        List<Title> GetAllByNonDeleted(int? authorId, Expression<Func<Title, bool>> filter = null);
         List<CategoryDetailsDto> GetCategoryDetails(Expression<Func<Category, bool>> filter = null);
         Title GetById(int id);
         void Add(Title title);

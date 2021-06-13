@@ -39,6 +39,11 @@ namespace BusinessLayer.Concrete
            return  _contentDal.GetAll(filter);
         }
 
+        public List<Content> GetByAuthorId(int authorId)
+        {
+            return _contentDal.GetAll(x => x.Author.Id == authorId, x => x.Author,x=>x.Title);
+        }
+
         public Content GetById(int id)
         {
             return _contentDal.Get(x => x.Id == id);

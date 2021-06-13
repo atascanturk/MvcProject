@@ -139,6 +139,9 @@
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
+    <Compile Include="Controllers\AuthorPanelContentController.cs" />
+    <Compile Include="Controllers\AuthorPanelController.cs" />
+    <Compile Include="Controllers\AuthorPanelMessageController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
@@ -2335,6 +2338,21 @@
     <Content Include="Views\Admin\AddAdmin.cshtml" />
     <Content Include="Views\MySkill\Index.cshtml" />
     <Content Include="Views\Message\GetNotSeenMessages.cshtml" />
+    <Content Include="Views\Shared\_AuthorLayout.cshtml" />
+    <Content Include="Views\AuthorPanel\AuthorProfile.cshtml" />
+    <Content Include="Views\AuthorPanel\MyTitles.cshtml" />
+    <Content Include="Views\AuthorPanel\NewTitle.cshtml" />
+    <Content Include="Views\AuthorPanel\UpdateTitle.cshtml" />
+    <Content Include="Views\AuthorPanel\DeleteTitle.cshtml" />
+    <Content Include="Views\AuthorPanelMessage\Inbox.cshtml" />
+    <Content Include="Views\AuthorPanelMessage\MessageListMenu.cshtml" />
+    <Content Include="Views\AuthorPanelMessage\SentMessages.cshtml" />
+    <Content Include="Views\AuthorPanelMessage\GetInboxMessageDetails.cshtml" />
+    <Content Include="Views\AuthorPanelMessage\GetSentMessageDetails.cshtml" />
+    <Content Include="Views\AuthorPanelMessage\GetDraftMessages.cshtml" />
+    <Content Include="Views\AuthorPanelMessage\GetNotSeenMessages.cshtml" />
+    <Content Include="Views\AuthorPanelMessage\NewMessage.cshtml" />
+    <Content Include="Views\AuthorPanelContent\MyContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
