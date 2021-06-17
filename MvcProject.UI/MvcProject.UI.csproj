@@ -2353,6 +2353,7 @@
     <Content Include="Views\AuthorPanelMessage\GetNotSeenMessages.cshtml" />
     <Content Include="Views\AuthorPanelMessage\NewMessage.cshtml" />
     <Content Include="Views\AuthorPanelContent\MyContent.cshtml" />
+    <Content Include="Views\Login\AuthorLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

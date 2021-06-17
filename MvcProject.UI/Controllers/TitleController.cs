@@ -57,7 +57,8 @@ namespace MvcProject.UI.Controllers
 
         [HttpPost]
         public ActionResult AddTitle(Title title)
-        {
+        {        
+           
             _titleService.Add(title);
             return RedirectToAction("Index");
         }

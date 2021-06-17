@@ -12,13 +12,15 @@ namespace MvcProject.UI.Controllers
     {
         ITitleService _titleService;
         ICategoryService _categoryService;
+        IAuthorService _authorService;
 
-        public AuthorPanelController(ITitleService titleService, ICategoryService categoryService)
+        public AuthorPanelController(ITitleService titleService, ICategoryService categoryService, IAuthorService authorService)
         {
             _titleService = titleService;
             _categoryService = categoryService;
+            _authorService = authorService;
         }
-
+       
         public ActionResult AuthorProfile()
         {
             return View();
@@ -26,8 +28,9 @@ namespace MvcProject.UI.Controllers
 
         public ActionResult MyTitles()
         {
-          
-            var headings = _titleService.GetAllByNonDeleted(3);
+            string authorMail = (string)Session["AuthorMail"];
+            int id = _authorService.Get(x => x.Mail == authorMail).Id;
+            var headings = _titleService.GetAllByNonDeleted(id);
             return View(headings);
         }
 
@@ -47,8 +50,9 @@ namespace MvcProject.UI.Controllers
 
         [HttpPost]
         public ActionResult NewTitle(Title title)
-        {
-            title.AuthorId = 1;
+        {           
+            string authorMail = (string)Session["AuthorMail"];
+            title.AuthorId = _authorService.Get(x => x.Mail == authorMail).Id;
             _titleService.Add(title);
             return RedirectToAction("MyTitles");
 

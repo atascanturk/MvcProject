@@ -10,16 +10,20 @@ namespace MvcProject.UI.Controllers
     public class AuthorPanelContentController : Controller
     {
         IContentService _contentService;
+        IAuthorService _authorService;
 
-        public AuthorPanelContentController(IContentService contentService)
+        public AuthorPanelContentController(IContentService contentService, IAuthorService authorService)
         {
             _contentService = contentService;
+            _authorService = authorService;
         }
+
         public ActionResult MyContent()
-        {
-            
-                var contents = _contentService.GetByAuthorId(3);
-                return View(contents);
-            }        
+        {            
+            string authorMail = (string)Session["AuthorMail"];
+            int id = _authorService.Get(x => x.Mail == authorMail).Id;
+            var contents = _contentService.GetByAuthorId(id);
+            return View(contents);
+        }
     }
 }

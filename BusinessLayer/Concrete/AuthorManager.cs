@@ -37,6 +37,11 @@ namespace BusinessLayer.Concrete
             _authorDal.Delete(author);
         }
 
+        public Author Get(Expression<Func<Author, bool>> filter = null)
+        {
+           return _authorDal.Get(filter);
+        }
+
         public List<Author> GetAll(Expression<Func<Author, bool>> filter = null)
         {
             return _authorDal.GetAll(filter);

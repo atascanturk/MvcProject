@@ -18,11 +18,7 @@
     @Html.Label("Kategori")
     @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.ValueCategories, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.CategoryId, "", new { @class = "text-danger" })
-    <br />
-    @Html.Label("Yazar")
-    @Html.DropDownListFor(x => x.AuthorId, (List<SelectListItem>)ViewBag.ValueAuthors, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.AuthorId, "", new { @class = "text-danger" })
-    <br />
+    <br />  
     
     <button class="btn btn-info">Ekle</button>
 </div>

@@ -10,14 +10,19 @@ using System.Web.Security;
 
 namespace MvcProject.UI.Controllers
 {
+   [AllowAnonymous]
     public class LoginController : Controller
     {
         IAdminService _adminService;
+        IAuthorService _authorService;
 
-        public LoginController(IAdminService adminService)
+        public LoginController(IAdminService adminService, IAuthorService authorService)
         {
             _adminService = adminService;
+            _authorService = authorService;
         }
+
+
 
         // GET: Login
         [HttpGet]
@@ -35,7 +40,7 @@ namespace MvcProject.UI.Controllers
 
             if (isAuthorizated)
             {
-                var admin = _adminService.Get(x => x.Email == adminForLoginDto.Email);
+                var admin = _adminService.Get(x => x.Email == adminForLoginDto.Email);               
                 FormsAuthentication.SetAuthCookie(admin.UserName, false);
                 Session["UserName"] = admin.UserName;
                 return  RedirectToAction("Index", "AdminCategory");
@@ -47,6 +52,32 @@ namespace MvcProject.UI.Controllers
                 return View();
             }
            
+        }
+
+        [HttpGet]
+        public ActionResult AuthorLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AuthorLogin(Author author)
+        {
+            var authorUser = _authorService.Get(x => x.Mail == author.Mail && x.Password == author.Password);            
+            if (authorUser != null)
+            {
+                FormsAuthentication.SetAuthCookie(authorUser.Mail, false);
+                Session["AuthorMail"] = authorUser.Mail;
+                Session["AuthorName"] = $"{authorUser.Name} {authorUser.LastName}";
+                return RedirectToAction("MyContent", "AuthorPanelContent");
+            }
+
+            else
+            {
+                ModelState.AddModelError("PasswordOrUserNameError", "Kullanıcı adı ve/veya şifre hatalı.");
+                return View();
+            }
+            
         }
     }
 }
