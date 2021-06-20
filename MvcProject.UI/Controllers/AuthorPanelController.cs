@@ -87,5 +87,11 @@ namespace MvcProject.UI.Controllers
             _titleService.Update(deletedTitle);
             return RedirectToAction("MyTitles");
         }
+
+        public  ActionResult AllTitles()
+        {
+            var titles = _titleService.GetAll();
+            return View(titles);
+        }
     }
 }

@@ -36,7 +36,7 @@ namespace BusinessLayer.Concrete
 
         public List<Content> GetAll(Expression<Func<Content, bool>> filter = null)
         {
-           return  _contentDal.GetAll(filter);
+           return  _contentDal.GetAll(filter, c=>c.Title, c=>c.Author);
         }
 
         public List<Content> GetByAuthorId(int authorId)
@@ -51,7 +51,7 @@ namespace BusinessLayer.Concrete
 
         public List<Content> GetByTitleId(int titleId)
         {
-           return _contentDal.GetAll(x => x.TitleId== titleId,x=>x.Author);
+           return _contentDal.GetAll(x => x.TitleId== titleId,x=>x.Author,x=>x.Title);
         }
 
         public void Update(Content content)

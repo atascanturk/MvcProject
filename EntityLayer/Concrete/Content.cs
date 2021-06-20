@@ -15,12 +15,13 @@ namespace EntityLayer.Concrete
 
         [StringLength(1000)]
         public string ContentValue { get; set; }
-        public DateTime Date { get; set; }
-        public bool Status { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
+        public bool Status { get; set; } = true;
 
         public int TitleId { get; set; }
         public virtual Title Title { get; set; }
 
+        public int AuthorId { get; set; }
         public virtual Author Author { get; set; }
     }
 }

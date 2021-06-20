@@ -140,6 +140,10 @@
     <Compile Include="Migrations\202106122038125_MySkillsTableAdded.designer.cs">
       <DependentUpon>202106122038125_MySkillsTableAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106201640089_AuthorIdColumnAdded.cs" />
+    <Compile Include="Migrations\202106201640089_AuthorIdColumnAdded.designer.cs">
+      <DependentUpon>202106201640089_AuthorIdColumnAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -208,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106122038125_MySkillsTableAdded.resx">
       <DependentUpon>202106122038125_MySkillsTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106201640089_AuthorIdColumnAdded.resx">
+      <DependentUpon>202106201640089_AuthorIdColumnAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

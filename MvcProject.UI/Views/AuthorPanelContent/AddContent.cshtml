@@ -1,0 +1,28 @@
+﻿@model EntityLayer.Concrete.Content
+
+@{
+    ViewBag.Title = "AddContent";
+    Layout = "~/Views/Shared/_AuthorLayout.cshtml";
+}
+
+<h1>Başlık Ekle</h1>
+<br />
+
+@using (Html.BeginForm("AddContent", "AuthorPanelContent", FormMethod.Post))
+{
+<div class="form-group">
+    <input  type="hidden" name="titleId" value="@ViewBag.TitleId"/>
+    <input  type="hidden" name="AuthorId" value="@ViewBag.AuthorId"/>
+    @Html.Label("İçeriğiniz")
+    @Html.TextAreaFor(x => x.ContentValue, 4, 30, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ContentValue, "", new { @class = "text-danger" })
+    <br />
+   
+    
+
+
+    <button class="btn btn-info">Gönder</button>
+</div>
+
+}
+

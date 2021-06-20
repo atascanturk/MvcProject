@@ -1,4 +1,7 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Title>
+
+
 @{
     Layout = null;
 }
@@ -63,11 +66,9 @@ to get the desired effect
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="~/AdminLTE-3.0.4/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
+                
                     <div class="info">
-                        <a href="#" class="d-block">@Session["AuthorName"]</a>
+                        <a href="/AdminCategory/Index" class="d-block"><i class="nav-icon fas fa-user mr-1"></i>  Profilim</a>
                     </div>
                 </div>
 
@@ -79,76 +80,25 @@ to get the desired effect
     with font-awesome or any other icon font library -->
 
                         <li class="nav-item has-treeview">
-                            <a href="/AdminCategory/Index" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Profilim
 
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="/AuthorPanel/MyTitles" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Başlıklarım
-
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="/AuthorPanel/AllTitles" class="nav-link">
-                                <i class="nav-icon fas fa-heading"></i>
-                                <p>
-                                   Tüm Başlıklar
-
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item has-treeview">
-                            <a href="/AuthorPanelMessage/Inbox/" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
-                                <p>
-                                    Mesajlar
-
-                                </p>
-                            </a>
+                            <p class="text-white text-center">
+                                En Güncel Başlıklar
+                            </p>
 
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/AuthorPanelContent/MyContent/" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
-                                <p>
-                                    Yazılarım
+                        @foreach (var title in Model)
+                        {
+                            <li class="nav-item">
+                                <a href="/Default/Titles/@title.Id" class="nav-link">
 
-                                </p>
-                            </a>
+                                    <p>
+                                       @(title.Name.Length>=32 ? title.Name.Substring(0, 31)+".." : title.Name)  
+                                    </p>
 
-                        </li>
+                                </a>
+                            </li>
+                        }
 
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>
-                                    Siteye git
-
-                                </p>
-                            </a>
-
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/Login/LogOut" class="nav-link">
-                                <i class="nav-icon fas fa-door-open"></i>
-                                <p>
-                                    Çıkış Yap
-
-                                </p>
-                            </a>
-
-                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -175,7 +125,7 @@ to get the desired effect
             <!-- /.content-header -->
             <!-- Main content -->
             <div class="content">
-                @RenderBody()
+              @Html.Action("Index","Default")
             </div>
             <!-- /.content -->
         </div>

@@ -79,5 +79,12 @@ namespace MvcProject.UI.Controllers
             }
             
         }
+
+        public ActionResult LogOut ()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("AuthorLogin");
+        }
     }
 }
