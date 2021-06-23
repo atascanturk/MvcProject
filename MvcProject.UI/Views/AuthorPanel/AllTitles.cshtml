@@ -1,5 +1,7 @@
 ﻿@using EntityLayer.Concrete
-@model List<Title>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Title>
 @{
     ViewBag.Title = "AllTitles";
     Layout = "~/Views/Shared/_AuthorLayout.cshtml";
@@ -14,7 +16,7 @@
             <div class="col-sm-8">
                 <h1>Projects</h1>
             </div>
-           
+
         </div>
     </div><!-- /.container-fluid -->
 </section>
@@ -89,16 +91,25 @@
                                     </i>
                                     Bu Başlığa Yaz
                                 </a>
-                           
+
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
+
         </div>
+
         <!-- /.card-body -->
     </div>
     <!-- /.card -->
 
 </section>
 <!-- /.content -->
+<div class="float-right">
+    @Html.PagedListPager((IPagedList)Model, start => Url.Action("AllTitles", new { start }), new PagedListRenderOptions
+{
+LiElementClasses = new List<string> { "page-link" }
+})
+
+</div>

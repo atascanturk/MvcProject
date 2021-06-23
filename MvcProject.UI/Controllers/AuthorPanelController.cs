@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,9 @@ namespace MvcProject.UI.Controllers
        
         public ActionResult AuthorProfile()
         {
-            return View();
+            string authorMail = (string)Session["AuthorMail"];
+            var author = _authorService.GetAll(x => x.Mail == authorMail).FirstOrDefault();
+            return View(author);
         }
 
         public ActionResult MyTitles()
@@ -88,9 +91,9 @@ namespace MvcProject.UI.Controllers
             return RedirectToAction("MyTitles");
         }
 
-        public  ActionResult AllTitles()
+        public  ActionResult AllTitles(int start =1)
         {
-            var titles = _titleService.GetAll();
+            var titles = _titleService.GetAll().ToPagedList(start, 4);
             return View(titles);
         }
     }

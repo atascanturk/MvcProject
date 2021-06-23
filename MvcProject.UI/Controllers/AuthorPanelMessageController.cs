@@ -24,15 +24,16 @@ namespace MvcProject.UI.Controllers
 
         public ActionResult Inbox()
         {
-
-            var messages = _messageService.GetAllForInbox();
+            string authorMail = (string)Session["AuthorMail"];
+            var messages = _messageService.GetAllForInbox(x => x.To == authorMail);
             return View(messages);
         }
 
         public ActionResult SentMessages()
         {
 
-            var sentMessages = _messageService.GetAllForSentMessages();
+            string authorMail = (string)Session["AuthorMail"];
+            var sentMessages = _messageService.GetAllForSentMessages(x => x.From == authorMail);
             return View(sentMessages);
         }
 
@@ -53,14 +54,16 @@ namespace MvcProject.UI.Controllers
         [HttpGet]
         public ActionResult GetDraftMessages()
         {
-            var draftMessages = _messageService.GetAll(x => x.isDraft == true);
+            string authorMail = (string)Session["AuthorMail"];
+            var draftMessages = _messageService.GetAll(x => x.isDraft == true & x.From == authorMail);
             return View(draftMessages);
         }
 
         [HttpGet]
         public ActionResult GetNotSeenMessages()
         {
-            var notSeenMessages = _messageService.GetAll(x => x.isSeen == false);
+            string authorMail = (string)Session["AuthorMail"];
+            var notSeenMessages = _messageService.GetAll(x => x.isSeen == false & x.To==authorMail );
             return View(notSeenMessages);
         }
 
@@ -74,7 +77,7 @@ namespace MvcProject.UI.Controllers
         [HttpPost]
         public ActionResult AddDraftMessageOrSendMessage(Message message)
         {
-
+            string authorMail = (string)Session["AuthorMail"];
             if (Request["Send"] != null)
             {
                 Message sentMessage = new Message
@@ -82,7 +85,7 @@ namespace MvcProject.UI.Controllers
                     Content = message.Content,
                     Date = message.Date,
                     isDraft = message.isDraft,
-                    From = "admin@admin.com",
+                    From = authorMail,
                     Subject = message.Subject,
                     To = message.To
                 };
@@ -116,7 +119,7 @@ namespace MvcProject.UI.Controllers
                 {
                     Date = message.Date,
                     Content = message.Content,
-                    From = "abc@abc.com",
+                    From = authorMail,
                     Subject = message.Subject,
                     To = message.To,
                     isDraft = true
@@ -134,10 +137,11 @@ namespace MvcProject.UI.Controllers
 
         public PartialViewResult MessageListMenu()
         {
-            ViewBag.NotSeen = _messageService.Count(x => x.isSeen == false);
-            ViewBag.MessageCount = _messageService.Count(x => x.From == "admin@FROM.com");
-            ViewBag.SentMessagesCount = _messageService.Count(x => x.To == "admin@TO.com");
-            ViewBag.DraftMessagesCount = _messageService.Count(x => x.isDraft == true);
+            string authorMail = (string)Session["AuthorMail"];
+            ViewBag.NotSeen = _messageService.Count(x => x.isSeen == false & x.To==authorMail);
+            ViewBag.MessageCount = _messageService.Count(x => x.To == authorMail & x.isSeen==false);
+            ViewBag.SentMessagesCount = _messageService.Count(x => x.From == authorMail);
+            ViewBag.DraftMessagesCount = _messageService.Count(x => x.isDraft == true & x.From == authorMail);
             return PartialView();
         }
     }

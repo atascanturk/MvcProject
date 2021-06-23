@@ -59,9 +59,10 @@ namespace MvcProject.UI.Controllers
         }
 
         [HttpGet]
-        public ActionResult UpdateAuthor(int id)
+        public ActionResult UpdateAuthor()
         {
-            var author = _authorService.GetById(id);
+            string authorMail = (string)Session["AuthorMail"];
+            var author = _authorService.Get(x=>x.Mail==authorMail);
 
             return View(author);
 

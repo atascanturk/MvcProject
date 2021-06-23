@@ -41,12 +41,13 @@ namespace BusinessLayer.Concrete
 
         public List<Message> GetAllForInbox(Expression<Func<Message, bool>> filter = null)
         {
-            return _messageDal.GetAll(x => x.From == "admin@FROM.com");
+            
+            return _messageDal.GetAll(filter);
         }
 
         public List<Message> GetAllForSentMessages(Expression<Func<Message, bool>> filter = null)
         {
-            return _messageDal.GetAll(x => x.To == "admin@TO.com");
+            return _messageDal.GetAll(filter);
         }
 
         public Message GetById(int id)

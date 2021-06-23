@@ -22,15 +22,15 @@ namespace MvcProject.UI.Controllers
 
         public ActionResult Inbox()
         {
-            
-            var messages = _messageService.GetAllForInbox();
+            string userName = (string)Session["UserName"];
+            var messages = _messageService.GetAllForInbox(x=>x.To==userName);
             return View(messages);
         }
 
         public ActionResult SentMessages()
         {
-          
-            var sentMessages = _messageService.GetAllForSentMessages();
+            string userName = (string)Session["UserName"];
+            var sentMessages = _messageService.GetAllForSentMessages(x=>x.From== userName);
             return View(sentMessages);
         }
 
@@ -69,14 +69,16 @@ namespace MvcProject.UI.Controllers
         [HttpGet]
         public ActionResult GetDraftMessages()
         {
-            var draftMessages = _messageService.GetAll(x => x.isDraft == true);
+            string userName = (string)Session["UserName"];
+            var draftMessages = _messageService.GetAll(x => x.isDraft == true & x.From == userName);
             return View(draftMessages);
         }
 
         [HttpGet]
         public ActionResult GetNotSeenMessages()
         {
-            var notSeenMessages = _messageService.GetAll(x => x.isSeen == false);
+            string userName = (string)Session["UserName"];
+            var notSeenMessages = _messageService.GetAll(x => x.isSeen == false & x.To == userName);
             return View(notSeenMessages);
         }
 
@@ -97,7 +99,7 @@ namespace MvcProject.UI.Controllers
         [HttpPost]
         public ActionResult AddDraftMessageOrSendMessage(Message message)
         {
-            
+            string userName = (string)Session["UserName"];
             if (Request["Send"] != null)
             {
                 Message sentMessage = new Message
@@ -105,7 +107,7 @@ namespace MvcProject.UI.Controllers
                     Content = message.Content,
                     Date = message.Date,
                     isDraft = message.isDraft,
-                    From = "admin@admin.com",
+                    From = userName,
                     Subject = message.Subject,
                     To = message.To
                 };
@@ -139,7 +141,7 @@ namespace MvcProject.UI.Controllers
                 {
                     Date = message.Date,
                     Content = message.Content,
-                    From = "abc@abc.com",
+                    From = userName,
                     Subject = message.Subject,
                     To = message.To,
                     isDraft = true
@@ -157,10 +159,11 @@ namespace MvcProject.UI.Controllers
 
         public PartialViewResult MessageListMenu()
         {
-            ViewBag.NotSeen = _messageService.Count(x => x.isSeen == false);
-            ViewBag.MessageCount = _messageService.Count(x => x.From == "admin@FROM.com");
-            ViewBag.SentMessagesCount = _messageService.Count(x => x.To == "admin@TO.com");
-            ViewBag.DraftMessagesCount = _messageService.Count(x => x.isDraft == true);
+            string userName = (string)Session["UserName"];
+            ViewBag.NotSeen = _messageService.Count(x => x.isSeen == false & x.To==userName);
+            ViewBag.MessageCount = _messageService.Count(x => x.To == userName & x.isSeen == false);
+            ViewBag.SentMessagesCount = _messageService.Count(x => x.From == userName);
+            ViewBag.DraftMessagesCount = _messageService.Count(x => x.isDraft == true & x.From == userName);
             return PartialView();
         }
     }
