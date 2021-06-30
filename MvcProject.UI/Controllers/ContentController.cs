@@ -22,6 +22,17 @@ namespace MvcProject.UI.Controllers
             return View();
         }
 
+        public ActionResult GetAllContent(string p)
+        {
+            var contents = _contentService.GetAll();
+            if (!string.IsNullOrEmpty(p))
+            {
+                contents = _contentService.GetAllForSearch(p);
+            }
+
+            return View(contents);
+        }
+
         public ActionResult ContentByTitle(int id)
         {
             var contents = _contentService.GetByTitleId(id);

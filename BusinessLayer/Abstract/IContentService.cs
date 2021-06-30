@@ -12,6 +12,7 @@ namespace BusinessLayer.Abstract
     {
         int Count(Expression<Func<Content, bool>> filter = null);
         List<Content> GetAll(Expression<Func<Content, bool>> filter = null);
+        List<Content> GetAllForSearch(string p = null);
         Content GetById(int id);
         List<Content> GetByTitleId(int titleId);
         List<Content> GetByAuthorId(int authorId);

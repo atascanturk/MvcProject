@@ -31,6 +31,7 @@ namespace MvcProject.UI.Controllers
 
         }
 
+        [AllowAnonymous]
         public ActionResult Titles()
         {
 
