@@ -30,6 +30,12 @@ namespace MvcProject.UI.Controllers
             return View(titles);
         }
 
+        public ActionResult TitleReport()
+        {
+            var titles = _titleService.GetAll();
+            return View(titles);
+        }
+
         [HttpGet]
         public ActionResult AddTitle()
         {
