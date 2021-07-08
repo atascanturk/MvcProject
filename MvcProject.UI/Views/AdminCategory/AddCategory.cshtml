@@ -4,21 +4,43 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
 <h1 class="text-center"> Yeni Kategori Ekleme Sayfası</h1>
-@using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post))
-{
-    <div class="form-group">
-        @Html.Label("Kategori Adı")
-        @Html.TextBoxFor(x => x.Name, new {@class ="form-control" })
-        @Html.ValidationMessageFor(x => x.Name)
-        <br /><br />
-        @Html.Label("Açıklama")
-        @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.Description)
-        <br /><br />
-        <button class="btn btn-info">Kaydet</button>
+@*@using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post))
+{*@
+<form action="/AdminCategory/AddCategory" method="post" id="form">
+    @Html.Label("Kategori Adı")
+    <input class="form-control" name="Name" id="name" />
+    @Html.ValidationMessageFor(x => x.Name)
+    <br /><br />
+    @Html.Label("Açıklama")
+    <input class="form-control" name="Description" id="description"/>  
+    @Html.ValidationMessageFor(x => x.Description)
+    <br /><br />
+    <button type="submit" class="btn btn-primary" id="btn1">Kaydet</button>
+</form>
+@*}*@
 
-    </div>
-}
+<script>
+   
+    $('#btn1').click(function (e) {
+       
+        if ($('#name').val() != "" & $('#description').val() != ''   ) {
+            e.preventDefault();
+            swal({
+                title: "Tebrikler!",
+                text: "Kategori Başarıyla Eklendi!",
+                icon: "success",
+                button: "Tamam!",
+            }).then(function () {
+                $('#form').submit();
 
+            });
+        
+        }
+    });
+</script>
 

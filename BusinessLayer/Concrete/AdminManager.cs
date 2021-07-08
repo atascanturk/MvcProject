@@ -49,6 +49,11 @@ namespace BusinessLayer.Concrete
             return _adminDal.Get(filter);
         }
 
+        public List<Admin> GetAll(Expression<Func<Admin, bool>> filter = null)
+        {
+            return _adminDal.GetAll();
+        }
+
         public bool GetByUserEmailAndPassword(AdminForLoginDto adminForLoginDto)
         {
 

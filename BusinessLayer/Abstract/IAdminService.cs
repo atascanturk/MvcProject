@@ -13,6 +13,7 @@ namespace BusinessLayer.Abstract
     {
         bool GetByUserEmailAndPassword(AdminForLoginDto adminForLoginDto);
         Admin Get(Expression<Func<Admin, bool>> filter = null);
+        List<Admin> GetAll(Expression<Func<Admin, bool>> filter = null);
         void Add(AdminAddDto adminAddDto, string password);
         void Delete(Admin admin);
         void Update(Admin admin);

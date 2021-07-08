@@ -3,6 +3,7 @@
 @{
     Layout = null;
 }
+
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
 <h1 class="text-center"> Yeni Kategori Ekleme Sayfası</h1>
@@ -17,10 +18,11 @@
     @Html.TextBoxFor(x => x.Description)
     @Html.ValidationMessageFor(x => x.Description)
     <br /><br />
-    <button>Kaydet</button>
 
+    <button class="btn btn-primary" id="btn1">Kaydet</button>
 </div>
 }
+
 
 @*<form class="form-group col-md-6 " method="post">
 

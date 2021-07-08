@@ -46,5 +46,22 @@ namespace MvcProject.UI.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult UpdateAdminRole(int id)
+        {
+            var admin = _adminService.Get(x => x.Id == id);
+            return View(admin);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateAdminRole(string role, int id)
+        {
+
+            var admin = _adminService.Get(x => x.Id == id);
+            admin.Role = role;
+            _adminService.Update(admin);
+            return RedirectToAction("Index","Auth");
+        }
     }
 }

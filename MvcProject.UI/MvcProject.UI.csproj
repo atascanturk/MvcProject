@@ -144,6 +144,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\AuthorPanelContentController.cs" />
     <Compile Include="Controllers\AuthorPanelController.cs" />
@@ -2426,6 +2427,8 @@
     <Content Include="Views\Content\GetAllContent.cshtml" />
     <Content Include="Views\Chart\Index.cshtml" />
     <Content Include="Views\Title\TitleReport.cshtml" />
+    <Content Include="Views\Auth\Index.cshtml" />
+    <Content Include="Views\Admin\UpdateAdminRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
